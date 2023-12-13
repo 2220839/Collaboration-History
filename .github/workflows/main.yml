@@ -1,0 +1,28 @@
+name: CPPLint Check
+
+on:
+  push:
+    paths:
+      - 'attendance.cpp'
+  pull_request:
+    paths:
+      - 'attendance.cpp'
+
+jobs:
+  cpplint:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout code
+      uses: actions/checkout@v2
+      
+    - name: Set up Python
+      uses: actions/setup-python@v2
+      with:
+        python-version: '3.10' # Use the appropriate Python version
+
+    - name: Install cpplint
+      run: pip install cpplint
+
+    - name: Run cpplint
+      run: cpplint --filter=-build/include_subdir --recursive attendance.cpp
