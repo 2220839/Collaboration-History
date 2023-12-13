@@ -37,4 +37,4 @@ jobs:
           +whitespace/comments \
           --recursive \
           --exclude=directory_to_exclude/*.cpp \
-          attendance.cpp
+          ../Attendance.cpp
