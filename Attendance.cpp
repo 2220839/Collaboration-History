@@ -1,4 +1,4 @@
-//CPPtest
+//test
 
 #include <iostream>
 #include <iomanip>
