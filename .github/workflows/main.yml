@@ -22,4 +22,5 @@ jobs:
 
     - name: Run cpplint
       run: |
+        chmod +x run_cpplint.sh
         ./run_cpplint.sh
