@@ -10,7 +10,24 @@
 #include <string>
 #include <ctime>
 
-using namespace std;
+using std::cout;
+using std::cerr;
+using std::endl;
+using std::ifstream;
+using std::ofstream;
+using std::ios;
+using std::setw;
+using std::setfill;
+using std::vector;
+using std::string;
+using std::stringstream;
+using std::chrono::system_clock;
+using std::time_t;
+using std::localtime;
+using std::tm;
+using std::strftime;
+using std::left;
+
 using vec = vector<string>;
 using matrix = vector<vec>;
 
@@ -103,8 +120,8 @@ string calc_time_15(string time)
 
 string getCurrentDateTime()
 {
-    auto now = chrono::system_clock::now();
-    time_t currentTime = chrono::system_clock::to_time_t(now);
+    auto now = system_clock::now();
+    time_t currentTime = system_clock::to_time_t(now);
     struct tm* localTimeInfo = localtime(&currentTime);
     // localtime_s(&localTimeInfo, &currentTime); // Use localtime_s for Windows, use localtime for Linux
     char buffer[80];
