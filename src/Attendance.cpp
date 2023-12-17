@@ -1,4 +1,4 @@
-//test  
+//test
 
 #include <iostream>
 #include <iomanip>
@@ -101,7 +101,7 @@ string calc_time_15(string time)
 
 //======================================================================
 
-string getCurrentDateTime() 
+string getCurrentDateTime()
 {
     auto now = chrono::system_clock::now();
     time_t currentTime = chrono::system_clock::to_time_t(now);
@@ -114,7 +114,7 @@ string getCurrentDateTime()
 
 //======================================================================
 
-void add_date_to_output(matrix &M) 
+void add_date_to_output(matrix &M)
 {
     string currentDate = "Attendance Checked: " + getCurrentDateTime();
     vec newRow = {currentDate};
@@ -124,7 +124,7 @@ void add_date_to_output(matrix &M)
 //======================================================================
 
 void check_attendance(matrix &M)
-{   
+{
     // Assuming teacherTimeIn is in HH:MM format
     string class_schedule = M[1][0];
     string teacherTimeIn;
@@ -136,7 +136,7 @@ void check_attendance(matrix &M)
         {
             teacherTimeIn = row[4]; // Get the student's time in
             cout << "Updating attendance based on teacher's time in: " << teacherTimeIn << endl;
-                
+            
             // Check if the teacher is absent or late
             if (teacherTimeIn.empty() || calc_time_15(class_schedule) < row[4])
             {
@@ -215,12 +215,12 @@ int main()
     cout << "\n\n";
 
     check_attendance( pets ); // check the attendance according to the time the person has timed in.
-    
+
     add_date_to_output(pets); // add the date the day the attendance was checked.
 
     printMatrix( pets ); // show the checked attendance.
 
-    writeCSV(pets, "updated_attendance.csv"); // write modified data to a separate file. 
+    writeCSV(pets, "updated_attendance.csv"); // write modified data to a separate file.
     //Note, if the output file still exist in the path where the output file will be made, the modified data will instead be put in the old output data
 
     return 0;
